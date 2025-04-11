@@ -9,6 +9,7 @@ public class VRHandCollider : MonoBehaviour
     [SerializeField] private float punchForceThreshold = 1.5f; // Minimum velocity to register as a punch
     [SerializeField] private float punchCooldown = 0.3f; // Time between punches
 
+
     [Header("References")]
     [SerializeField] private Transform trackedObject; // VR controller/hand transform
 
@@ -21,8 +22,10 @@ public class VRHandCollider : MonoBehaviour
     private float cooldownTimer = 0f;
     private bool canPunch = true;
 
+
     // Cached components
     private Collider handCollider;
+
 
     void Start()
     {
@@ -37,6 +40,7 @@ public class VRHandCollider : MonoBehaviour
 
         // Set to trigger so it doesn't push objects
         handCollider.isTrigger = true;
+
 
         // Initialize position tracking
         if (trackedObject == null)
@@ -81,12 +85,16 @@ public class VRHandCollider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
+        
         // Only register hits when we can punch
         if (!canPunch) return;
+        Debug.Log("you can punch");
 
         // Check punch velocity
         float punchForce = velocity.magnitude;
         if (punchForce < punchForceThreshold) return;
+        Debug.Log("punch is over threshold");
 
         // Check if we hit something with a damage receiver
         DamageReceiver damageReceiver = other.GetComponentInParent<DamageReceiver>();
@@ -99,6 +107,7 @@ public class VRHandCollider : MonoBehaviour
             // Cap damage at a reasonable amount
             damage = Mathf.Min(damage, 30);
 
+
             // Create hit info
             HitInfo hitInfo = new HitInfo
             {
@@ -109,8 +118,10 @@ public class VRHandCollider : MonoBehaviour
                 handType = handType
             };
 
+
             // Apply damage
             damageReceiver.TakeDamage(hitInfo);
+
 
             // Debug output
             if (showDebugInfo)
@@ -129,8 +140,9 @@ public class VRHandCollider : MonoBehaviour
     {
         if (!showDebugInfo) return;
 
+        
         Gizmos.color = handType == "Right" ? Color.blue : Color.green;
-
+        
         // Draw different gizmo based on collider type
         if (handCollider is SphereCollider)
         {

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/DamageReciver.cs.meta
+guid: b2af91b110227d443b89fdc47d511f3f
+========
+guid: 8438adb7ac78f374d99c88110376d53a
+>>>>>>>> 12c1886b14e4c7f2e2d6bd3594d07ef026669c44:Assets/DamageReciever.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

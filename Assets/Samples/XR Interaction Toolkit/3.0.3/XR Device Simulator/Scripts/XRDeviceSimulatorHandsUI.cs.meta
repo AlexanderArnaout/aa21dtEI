@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Samples/XR Interaction Toolkit/3.0.3/XR Device Simulator/Scripts/XRDeviceSimulatorHandsUI.cs.meta
 guid: f35ac646ecbef4ece8c3eac9e74e1828
+========
+guid: e8b922481d9264546b97958b2c7cf0a0
+>>>>>>>> 12c1886b14e4c7f2e2d6bd3594d07ef026669c44:Assets/Samples/XR Interaction Toolkit/3.0.3/XR Device Simulator/Scripts/XRDeviceSimulatorUI.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
