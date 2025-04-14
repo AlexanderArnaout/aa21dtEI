@@ -132,8 +132,9 @@ GameObject:
   m_Component:
   - component: {fileID: 577885312}
   - component: {fileID: 577885313}
+  - component: {fileID: 577885314}
   m_Layer: 0
-  m_Name: rightHandCollider
+  m_Name: VRHandCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +150,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1915783314}
@@ -171,6 +172,27 @@ MonoBehaviour:
   punchCooldown: 0.3
   trackedObject: {fileID: 1915783314}
   showDebugInfo: 1
+--- !u!135 &577885314
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577885311}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &646033780
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,8 +249,9 @@ GameObject:
   m_Component:
   - component: {fileID: 946827571}
   - component: {fileID: 946827572}
+  - component: {fileID: 946827573}
   m_Layer: 0
-  m_Name: leftHandCollider
+  m_Name: VRHandCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +267,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1407072053}
@@ -265,7 +288,28 @@ MonoBehaviour:
   punchForceThreshold: 1.5
   punchCooldown: 0.3
   trackedObject: {fileID: 1407072053}
-  showDebugInfo: 0
+  showDebugInfo: 1
+--- !u!135 &946827573
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946827570}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1330199486
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +337,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330199486}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 590dbebc6f287b940ac52b3dfea3bfc1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -366,8 +410,8 @@ Transform:
   m_GameObject: {fileID: 1330199486}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8717, y: 0.6719, z: -0.4816}
-  m_LocalScale: {x: 0.5966, y: 1.4149193, z: 0.8032}
+  m_LocalPosition: {x: 2.8717, y: 1.7345, z: -0.4816}
+  m_LocalScale: {x: 0.5481256, y: 3.2526188, z: 0.7379392}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -386,12 +430,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  headMultiplier: 19.5
+  headMultiplier: 20
   bodyMultiplier: 1
-  headCenter: {fileID: 0}
+  headCenter: {fileID: 1330199490}
   normalMaterial: {fileID: 0}
   hitMaterial: {fileID: 0}
-  hitFlashDuration: 0.1
+  hitFlashDuration: 0.5
   OnHit:
     m_PersistentCalls:
       m_Calls:

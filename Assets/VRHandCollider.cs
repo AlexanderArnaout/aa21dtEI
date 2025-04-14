@@ -14,7 +14,7 @@ public class VRHandCollider : MonoBehaviour
     [SerializeField] private Transform trackedObject; // VR controller/hand transform
 
     [Header("Debug")]
-    [SerializeField] private bool showDebugInfo = true;
+    [SerializeField] private bool showDebugInfo = false;
 
     // Internal tracking
     private Vector3 previousPosition;
@@ -78,28 +78,29 @@ public class VRHandCollider : MonoBehaviour
             float speed = velocity.magnitude;
             if (speed > punchForceThreshold)
             {
-                Debug.Log($"{handType} hand velocity: {speed}");
+                //Debug.Log($"{handType} hand velocity: {speed}");
             }
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("you hit something");
 
-        
         // Only register hits when we can punch
         if (!canPunch) return;
         Debug.Log("you can punch");
 
         // Check punch velocity
         float punchForce = velocity.magnitude;
-        if (punchForce < punchForceThreshold) return;
+        if (punchForce < 5) return;
         Debug.Log("punch is over threshold");
 
         // Check if we hit something with a damage receiver
-        DamageReceiver damageReceiver = other.GetComponentInParent<DamageReceiver>();
+        DamageReceiver damageReceiver = other.transform.gameObject.GetComponent<DamageReceiver>();
         if (damageReceiver != null)
         {
+            Debug.Log("aaaaaaaaa");
             // Calculate damage based on velocity
             float rawDamage = punchForce * 10f; // Adjust multiplier as needed
             int damage = Mathf.RoundToInt(rawDamage);
@@ -120,7 +121,7 @@ public class VRHandCollider : MonoBehaviour
 
 
             // Apply damage
-            damageReceiver.TakeDamage(hitInfo);
+            damageReceiver.TakeDamage();
 
 
             // Debug output

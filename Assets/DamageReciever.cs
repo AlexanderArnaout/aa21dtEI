@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class DamageReceiver : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int maxHealth = 1;
     [SerializeField] private int currentHealth;
     
     [Header("Hit Zones")]
@@ -72,11 +72,13 @@ public class DamageReceiver : MonoBehaviour
         }
     }
     
-    public void TakeDamage(HitInfo hitInfo)
+    public void TakeDamage()
     {
+        Debug.Log("took damage");
+
         // Apply damage multiplier based on hit zone
-        float multiplier = GetHitZoneMultiplier(hitInfo.hitPosition);
-        int finalDamage = Mathf.RoundToInt(hitInfo.damage * multiplier);
+        //float multiplier = GetHitZoneMultiplier(hitInfo.hitPosition);
+        int finalDamage = Mathf.RoundToInt(10);
         
         // Apply damage
         currentHealth = Mathf.Max(0, currentHealth - finalDamage);
@@ -88,7 +90,7 @@ public class DamageReceiver : MonoBehaviour
         }
         
         // Trigger hit event
-        OnHit?.Invoke(hitInfo);
+        //OnHit?.Invoke();
         
         // Debug output
         Debug.Log($"{gameObject.name} took {finalDamage} damage! Health: {currentHealth}/{maxHealth}");
@@ -97,6 +99,7 @@ public class DamageReceiver : MonoBehaviour
         if (currentHealth <= 0)
         {
             Defeat();
+            Debug.Log("dead");
         }
     }
     
@@ -140,6 +143,8 @@ public class DamageReceiver : MonoBehaviour
         
         // Trigger defeat event
         OnDefeat?.Invoke();
+
+        
         
         // You can add defeat animation, particle effects, etc. here
     }
